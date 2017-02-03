@@ -19,7 +19,7 @@ app.get('/customers/:id', (req, res) => {
   const customerId = req.params.id;
   Customer.findById(customerId)
   .then((customer) => {
-    if(!customer) {
+    if (!customer) {
       return res.status(404).send();
     }
     return res.send({ customer });
@@ -27,7 +27,7 @@ app.get('/customers/:id', (req, res) => {
   .catch((error) => {
     console.log(error);
     return res.status(400).send();
-  }) 
+  });
 });
 
 // Operation to create customers
