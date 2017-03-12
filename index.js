@@ -17,7 +17,7 @@ app.get('/customers', (req, res) => {
 
 app.get('/customers/:id', (req, res) => {
   const customerId = req.params.id;
-  Customer.findById(customerId)
+  Customer.findOne({ email: customerId })
   .then((customer) => {
     if (!customer) {
       return res.status(404).send();
